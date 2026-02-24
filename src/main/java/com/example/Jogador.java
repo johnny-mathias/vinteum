@@ -5,19 +5,13 @@ import java.util.List;
 
 public class Jogador {
 
+    // atributos
     private int pontos = 0;
     private List<Carta> cartas = new ArrayList<>();
     private boolean parou = false;
 
-    public void receberCarta(Carta carta){
-        cartas.add(carta);
-        pontos += carta.getNumero();
-    }
 
-    public void parar(){
-        parou = true;
-    }
-
+    // getters
     public int getPontos() {
         return pontos;
     }
@@ -26,7 +20,21 @@ public class Jogador {
         return cartas;
     }
 
-    public boolean parou() {
+    // métodos particulares
+    public void receberCarta(Carta carta){
+        cartas.add(carta);
+        pontos += carta.getNumero();
+    }
+
+    public boolean parou(){
         return parou;
+    }
+
+    public void parar(){
+        parou = true;
+    }
+
+    public boolean estourou(){
+        return getPontos() > 21;
     }
 }
